@@ -1,4 +1,4 @@
-# easyjson [![Build Status](https://travis-ci.org/mailru/easyjson.svg?branch=master)](https://travis-ci.org/mailru/easyjson)
+# easyjson [![Build Status](https://travis-ci.org/mailru/easyjson.svg?branch=master)](https://travis-ci.org/mailru/easyjson) [![Go Report Card](https://goreportcard.com/badge/github.com/mailru/easyjson)](https://goreportcard.com/report/github.com/mailru/easyjson)
 
 Package easyjson provides a fast and easy way to marshal/unmarshal Go structs
 to/from JSON without the use of reflection. In performance tests, easyjson
@@ -49,6 +49,8 @@ Usage of easyjson:
     	process the whole package instead of just the given file
   -snake_case
     	use snake_case names instead of CamelCase by default
+  -lower_camel_case
+        use lowerCamelCase instead of CamelCase by default
   -stubs
     	only generate stubs for marshaler/unmarshaler funcs
 ```
@@ -60,7 +62,7 @@ generated. For example:
 
 ```go
 //easyjson:json
-struct A{}
+type A struct {}
 ```
 
 Additional option notes:
@@ -216,7 +218,7 @@ used with a writer.
 
 ### easyjson vs. go/codec
 
-[go/codec](https://github.com/ugorji/go/codec) provides
+[go/codec](https://github.com/ugorji/go) provides
 compile-time helpers for JSON generation. In this case, helpers do not work
 like marshalers as they are encoding-independent.
 
